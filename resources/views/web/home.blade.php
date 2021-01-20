@@ -19,6 +19,11 @@ Monday - Home
 					{!! \Session::get('success') !!}
 				</div>
 			@endif
+			@if(\Session::has('failed'))
+				<div class="alert alert-danger" role="alert">
+					{!! \Session::get('failed') !!}
+				</div>
+			@endif
             <table class="table">
                 <thead>
                     <tr>
@@ -48,12 +53,12 @@ Monday - Home
     </div>
 
 	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	  <div class="modal-dialog">
+	  <div class="modal-dialog modal-dialog-centered">
 	    <div class="modal-content">
 			<form action="/item/import" method="post" id="import" enctype="multipart/form-data">
 				@csrf
 		    	<div class="modal-header">
-		        	<h5 class="modal-title" id="exampleModalLabel">Import data</h5>
+		        	<h5 class="modal-title" id="exampleModalLabel">Import file</h5>
 		        	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 		      	</div>
 		      	<div class="modal-body">
@@ -73,10 +78,11 @@ Monday - Home
 	@push('js-script')
 		<script>
 			let imp = document.getElementById('btn-import');
-			imp.addEventListener('click', () => {
+			imp.addEventListener('click', (e) => {
+				e.preventDefault();
 				let file = document.getElementById('import-file').value;
 				if(!file) {
-					alert('File expty!');
+					window.alert('Import file tidak boleh kosong !!!')
 				} else {
 					document.getElementById("import").submit();
 				}

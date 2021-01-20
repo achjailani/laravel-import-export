@@ -19,15 +19,17 @@ class ItemImport implements ToModel, WithHeadingRow
     public function model(array $row)
     {
         if(!empty($row['kode'])) {
-            return new Item([
-                'kode'      => $row['kode'],
-                'nama'      => $row['nama'],
-                'jenis'     => $row['jenis'],
-                'deskripsi' => $row['deskripsi'],
-                'harga'     => $row['harga'],
-                'qty'       => $row['qty'],
-                'berat'     => $row['berat'],
-            ]);
+            if(!Item::where('kode', $row['kode'])->first()) {
+                return new Item([
+                    'kode'      => $row['kode'],
+                    'nama'      => $row['nama'],
+                    'jenis'     => $row['jenis'],
+                    'deskripsi' => $row['deskripsi'],
+                    'harga'     => $row['harga'],
+                    'qty'       => $row['qty'],
+                    'berat'     => $row['berat'],
+                ]);
+            }
         }
     }
 

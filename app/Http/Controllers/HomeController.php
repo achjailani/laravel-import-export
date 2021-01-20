@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index(){
         return view('web.home',[
-            'datas' => Item::all()
+            'datas' => Item::orderByDesc('created_at')->get()
         ]);
     }
 }
