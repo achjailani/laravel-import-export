@@ -7,7 +7,7 @@ This project is an example of implementation importing & exporting file to and f
 
 * clone repository : ``git clone https://github.com/achjailani/laravel-import-export``
 * ``cd laravel-import-export``
-* run  ``composer install``
+* run  ``composer install`` inside your project directory
 * then run ``php artisan key:generate``
 * duplicate ``.env.example`` file and name it ``.env``
 * create database on your own
