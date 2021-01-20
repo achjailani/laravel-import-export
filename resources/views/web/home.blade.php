@@ -9,7 +9,7 @@ Monday - Home
 	<h1 class="page-title mb-0 text-gray-800">Product Item</h1>
     <div>
         <a href="#" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Import</a>
-        <a href="#" class="btn btn-outline-warning btn-sm">Export</a>
+        <a href="/item/export" class="btn btn-outline-warning btn-sm">Export</a>
     </div>
 </div>
     <div class="row mt-4">

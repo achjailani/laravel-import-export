@@ -17,3 +17,4 @@ use App\Http\Controllers\ItemController;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::post('/item/import', [ItemController::class, 'import']);
+Route::get('/item/export', [ItemController::class, 'export']);

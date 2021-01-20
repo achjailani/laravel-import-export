@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Imports\ItemImport;
+use App\Exports\ItemExport;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ItemController extends Controller
@@ -14,6 +15,10 @@ class ItemController extends Controller
         }
         Excel::import(new ItemImport, $request->file('import-file'));
         return redirect()->back()->with('success', 'All data has been successfully imported!');
+    }
+
+    public function export() {
+        return Excel::download(new ItemExport, 'archive.xlsx');
     }
 
     private function isType(string $str) {
