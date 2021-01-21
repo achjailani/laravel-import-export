@@ -1,6 +1,6 @@
 ## Laravel Import Export
 
-This project is an example of implementation importing & exporting file to and from database
+This project is an example of implementation importing & exporting file to and from database with implementing [Maatwebsite/Laravel-Excel](https://github.com/Maatwebsite/Laravel-Excel) package
 
 
 ### Installation
